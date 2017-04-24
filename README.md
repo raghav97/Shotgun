@@ -4,6 +4,7 @@
 
 ## TODO List
 
+- Make new new prices get added in the price Array
 - Add authentication using Device
 - Relate User with Product
 - Create a form for getting a new product tracking details from User
