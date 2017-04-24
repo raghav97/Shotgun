@@ -1,24 +1,13 @@
-# README
+# Shotgun
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## A Ruby on Rails application to monitor the price of a particular item in flipkart for every one hour using a Heroku rake task and report a message to user when the price of the item falls below a particular threshold using Twilio API.
 
-Things you may want to cover:
+## TODO List
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Make new new prices get added in the price Array
+- Add authentication using Device
+- Relate User with Product
+- Create a form for getting a new product tracking details from User
+- Update the display page with a neat display
+- Setup a Heroku rake task that runs every one hour
+- Integrate with Twilio send a message to the User if the criteria passes
