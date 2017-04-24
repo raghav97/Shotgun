@@ -12,10 +12,13 @@
 
 ActiveRecord::Schema.define(version: 20170424140651) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "products", force: :cascade do |t|
+    t.string   "flipkart_id"
     t.string   "name"
     t.string   "category"
-    t.string   "flipkart_id"
     t.string   "image_url"
     t.string   "max_price"
     t.string   "price"
@@ -41,8 +44,8 @@ ActiveRecord::Schema.define(version: 20170424140651) do
     t.string   "username"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
 end

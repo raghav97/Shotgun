@@ -54,3 +54,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'flipkart_api', '~> 0.1.0'
 gem 'pry', '~> 0.10.4'
 gem 'devise', '~> 4.2', '>= 4.2.1'
+gem 'pg', '~> 0.18'
