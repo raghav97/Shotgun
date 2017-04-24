@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20170424140651) do
   enable_extension "plpgsql"
 
   create_table "products", force: :cascade do |t|
+    t.string   "flipkart_link"
     t.string   "flipkart_id"
     t.string   "name"
     t.string   "category"
