@@ -1,7 +1,7 @@
 class ProductController < ApplicationController
   include ApplicationHelper
   def get_product
-    @link = "https://www.flipkart.com/honor-holly-3-black-16-gb/p/itmemk73ntqtprzf?pid=MOBEMK73JSBAPNKK&srno=s_1_6&otracker=search&lid=LSTMOBEMK73JSBAPNKKJBSRJ8&qH=b5925d6543e2f52e"
+    @link = "https://www.flipkart.com/cockatoo-professional-cycling-helmet/p/itmempmyzm4ye5ak?pid=HLMEMPMYPNHXZUGD&fm=personalisedRecommendation/p2p-same&iid=R_03e9137b-6fe3-4725-b7a4-329d8a6ced8a_R_a4489598-f6b9-4fe8-bfde-f2340a7a999c.HLMEMPMYPNHXZUGD&otracker=hp_reco_Cricket+Helmets_3_Cockatoo+Professional+Cycling+Helmet_HLMEMPMYPNHXZUGD_5"
     fk_api = FlipkartApi.new("vcraghavg", "47d86d84dbdc4d89919e125744ef6c65", "v0.1.0")
     product = fk_api.get_product_by_id(get_id(@link), "json")
     parsed_json = ActiveSupport::JSON.decode(product)
@@ -24,7 +24,7 @@ class ProductController < ApplicationController
   end
 
   def rake_task
-    @link = "https://www.flipkart.com/honor-holly-3-black-16-gb/p/itmemk73ntqtprzf?pid=MOBEMK73JSBAPNKK&srno=s_1_6&otracker=search&lid=LSTMOBEMK73JSBAPNKKJBSRJ8&qH=b5925d6543e2f52e"
+    @link = "https://www.flipkart.com/cockatoo-professional-cycling-helmet/p/itmempmyzm4ye5ak?pid=HLMEMPMYPNHXZUGD&fm=personalisedRecommendation/p2p-same&iid=R_03e9137b-6fe3-4725-b7a4-329d8a6ced8a_R_a4489598-f6b9-4fe8-bfde-f2340a7a999c.HLMEMPMYPNHXZUGD&otracker=hp_reco_Cricket+Helmets_3_Cockatoo+Professional+Cycling+Helmet_HLMEMPMYPNHXZUGD_5"
     fk_api = FlipkartApi.new("vcraghavg", "47d86d84dbdc4d89919e125744ef6c65", "v0.1.0")
     product = fk_api.get_product_by_id(get_id(@link), "json")
     parsed_json = ActiveSupport::JSON.decode(product)

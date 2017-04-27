@@ -1,0 +1,2 @@
+class Purelation < ApplicationRecord
+end
