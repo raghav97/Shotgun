@@ -4,8 +4,8 @@
 
 ## TODO List
 
-x Make new new prices get added in the price Array
-x Add authentication using Device
+-X Make new new prices get added in the price Array
+-X Add authentication using Device
 - Relate User with Product
 - Create a form for getting a new product tracking details from User
 - Update the display page with a neat display
