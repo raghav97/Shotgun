@@ -1,1 +1,12 @@
-show page
+<div class="post-container">                
+    <div class="post-thumb"><img src="<%= @product.image_url %>" /></div>
+    <div class="post-content">
+        <h3 class="post-title"> <%= @product.name %> </h3>
+        <h5 class = "post-title"> Current price: <%= @product.price.last %> &nbsp &nbsp &nbsp Target price: <%= @product.target_price %> </h5>
+        <% if @product.available == true %>
+          <h5 class = "post-center-yes"> Available </h5>
+        <% else %>
+          <h5 class = "post-center-no"> Not available </h5>
+        <% end %>
+   </div>
+</div>

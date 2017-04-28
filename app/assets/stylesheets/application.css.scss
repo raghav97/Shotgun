@@ -1,0 +1,48 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+
+.image{
+  padding-left: 100px;
+}
+.contents{
+  padding-right: 100px;
+  color: yellow;
+}
+
+
+.post-container {
+    margin: 20px 20px 0 0;  
+    border: 3px solid #333;
+    overflow: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+}
+.post-thumb {
+    float: left
+}
+.post-thumb img {
+    display: block
+}
+.post-content {
+    margin-left: 210px
+}
+.post-title {
+    font-weight: bold;
+    font-size: 200%
+}
+
+.post-center-yes {
+  font-weight: bold;
+  font-size: 200%;
+  color: green;
+}
+
+.post-center-no {
+  font-weight: bold;
+  font-size: 200%;
+  color: red;
+  text-align: center;
+}
