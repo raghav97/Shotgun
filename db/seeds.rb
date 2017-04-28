@@ -1,4 +1,4 @@
-user = User.create(email: "vc.raghav@gmail.com", password: "password", password_confirmation: "password")
+user = User.create(email: "vc.raghav@gmail.com", first_name: "Raghav", last_name: "Vc", password: "password", password_confirmation: "password")
 user.save!
 puts "Created user"
 # https://www.flipkart.com/muscletech-whey-protein/p/itmebfd9vtpydmnw?pid=PSLEBFD99YZ6JD5Y&srno=b_1_9&otracker=hp_omu_Deals%20of%20the%20Day_1_20-80%25%20Off_b5213a43-1636-4866-92ed-64e46dab4f89&lid=LSTPSLEBFD99YZ6JD5YBP9RKE
