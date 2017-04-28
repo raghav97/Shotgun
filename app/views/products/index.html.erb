@@ -1,3 +1,6 @@
+<%= render 'shared/nav' %>
+
+<h2 id = "text-center"> Hello there <%= current_user.first_name %>, here are your products </h2>
 <% @products.each do |product| %>
   <div class="post-container">                
       <div class="post-thumb"><img src="<%= product.image_url %>" /></div>
