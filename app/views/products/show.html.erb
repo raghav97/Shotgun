@@ -1,5 +1,5 @@
 <%= render 'shared/nav' %>
-
+<h2 id = "text-center"> Product details </h2>
 <% if @product.user_id == current_user.id %>
   <% @product.price.push(get_price_from_link(@product.flipkart_link)) %> 
   <% t = Time.now %>
@@ -9,6 +9,7 @@
       <div class="post-thumb"><img src="<%= @product.image_url %>" /></div>
       <div class="post-content">
           <h3 class="post-title"> <%= @product.name %> </h3>
+          <h3 class="post-title"> <%= @product.category %> </h3>
           <h5 class = "post-title"> Current price: <%= @product.price.last %> &nbsp &nbsp &nbsp Target price: <%= @product.target_price %> </h5>
           <% if @product.available == true %>
             <h5 class = "post-center-yes"> Available </h5>
