@@ -11,6 +11,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.boolean       :available
       t.string        :target_price
       t.integer       :user_id
+      t.string        :time
       
       t.timestamps null: false
     end

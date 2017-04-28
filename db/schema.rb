@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20170427180816) do
     t.boolean  "available"
     t.string   "target_price"
     t.integer  "user_id"
+    t.string   "time"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end

@@ -1,6 +1,9 @@
 <%= render 'shared/nav' %>
 
 <% if @product.user_id == current_user.id %>
+  <% @product.price.push(get_price_from_link(@product.flipkart_link)) %>
+  <% @product.time.push(Time.now.to_s[0..18]) %>
+  <% @product.save! %>
   <div class="post-container">                
       <div class="post-thumb"><img src="<%= @product.image_url %>" /></div>
       <div class="post-content">
@@ -13,6 +16,28 @@
           <% end %>
      </div>
   </div>
+
+  <br> <br>
+
+  <table border = "1" width = "100%">
+    <tr>
+    <td>
+      <table border="1" width="100%">
+        <tr>
+          <th> Price </th>
+          <th> Time </th>
+        </tr>
+
+        <%= @product.price.zip(@product.time) do |price, time| %>
+          <tr>
+           <td> Rs. <%= price %> </td>
+           <td> <%= time %> </td>
+          </tr>
+        <% end %>
+      </table>
+    </td>
+    </tr>
+  </table>
 <% else %>
   <h3 class = "center"> Sorry, the product you're searching for does not belong to you </h3>
 <% end %>

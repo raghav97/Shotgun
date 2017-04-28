@@ -60,6 +60,7 @@ class ProductsController < ApplicationController
       @product.price = arr.fifth
       @product.available = arr.last
       @product.user_id = current_user.id
+      @product.time << Time.now.to_s[0..18]
       @product.save!
     else
 
