@@ -60,7 +60,8 @@ class ProductsController < ApplicationController
       @product.price = arr.fifth
       @product.available = arr.last
       @product.user_id = current_user.id
-      @product.time << Time.now.to_s[0..18]
+      t = Time.now
+      @product.time.push(t.to_s[11..15] + ", " + t.to_s[8..9] + " " + month_no_to_name(t.to_s[5..6].to_i) + " " +  t.to_s[0..3])
       @product.save!
     else
 
