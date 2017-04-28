@@ -55,3 +55,5 @@ gem 'flipkart_api', '~> 0.1.0'
 gem 'pry', '~> 0.10.4'
 gem 'devise', '~> 4.2', '>= 4.2.1'
 gem 'pg', '~> 0.18'
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+gem "gritter", "1.2.0"

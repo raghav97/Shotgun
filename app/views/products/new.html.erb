@@ -1,0 +1,15 @@
+<%= form_for @product do |f| %>
+
+  <div class="form-group">
+    <%= f.label :flipkart_link, class: "col-sm-2 control-label" %>  
+    <%= f.text_area :flipkart_link, class: "form-control" %>  
+  </div>
+
+  <div class="form-group">
+    <%= f.label :target_price, class: "col-sm-2 control-label" %>  
+    <%= f.text_area :target_price, class: "form-control" %>  
+  </div>
+  
+  <%= f.submit 'Save', class: 'btn btn-primary btn-block' %>
+
+<% end %>

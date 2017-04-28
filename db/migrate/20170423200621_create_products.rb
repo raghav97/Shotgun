@@ -9,7 +9,8 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.string        :max_price
       t.string        :price
       t.boolean       :available
-
+      t.string        :target_price
+      
       t.timestamps null: false
     end
   end
