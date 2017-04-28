@@ -52,6 +52,7 @@ class ProductsController < ApplicationController
       Purelation.create(product_id: Product.last.id + 1, user_id: current_user.id)
       arr = expand_from_link(@product.flipkart_link)
       i = 0.to_i
+      @product.flipkart_id = get_id(@product.flipkart_link)
       for i in 0..5
         @product.name = arr.first
         @product.category = arr.second
