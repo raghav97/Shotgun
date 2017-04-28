@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   include ApplicationHelper
-
+  fk_api = FlipkartApi.new("vcraghavg", "47d86d84dbdc4d89919e125744ef6c65", "v0.1.0")
   def get_product
     @link = "https://www.flipkart.com/cockatoo-professional-cycling-helmet/p/itmempmyzm4ye5ak?pid=HLMEMPMYPNHXZUGD&fm=personalisedRecommendation/p2p-same&iid=R_03e9137b-6fe3-4725-b7a4-329d8a6ced8a_R_a4489598-f6b9-4fe8-bfde-f2340a7a999c.HLMEMPMYPNHXZUGD&otracker=hp_reco_Cricket+Helmets_3_Cockatoo+Professional+Cycling+Helmet_HLMEMPMYPNHXZUGD_5"
     fk_api = FlipkartApi.new("vcraghavg", "47d86d84dbdc4d89919e125744ef6c65", "v0.1.0")
@@ -46,10 +46,22 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    Purelation.create(product_id: Product.last.id + 1, user_id: current_user.id)
 
     if @product.save
       redirect_to @product
+      Purelation.create(product_id: Product.last.id + 1, user_id: current_user.id)
+      arr = expand_from_link(@product.flipkart_link)
+      i = 0.to_i
+      for i in 0..5
+        @product.name = arr.first
+        @product.category = arr.second
+        @product.image_url = arr.third
+        @product.max_price = arr.fourth
+        @product.price = arr.fifth
+        @product.available = arr.last
+
+        @product.save!
+      end
     else
 
     end
@@ -67,6 +79,6 @@ class ProductsController < ApplicationController
   private
 
     def product_params
-      params.require(:product).permit(:flipkart_link, :target_price)
+      params.require(:product).permit(:flipkart_link, :flipkart_id, :name, :category, :image_url, :max_price, :price, :available, :target_price)
     end
 end
