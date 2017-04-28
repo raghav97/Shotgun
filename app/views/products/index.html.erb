@@ -2,7 +2,8 @@
 
 <h2 id = "text-center"> Hello there <%= current_user.first_name %>, here are your products </h2>
 <% @products.each do |product| %>
-  <div class="post-container">                
+  <div class="post-container">
+      <a href = "/products/<%= product.id %>">         
       <div class="post-thumb"><img src="<%= product.image_url %>" /></div>
       <div class="post-content">
           <h3 class="post-title"> <%= product.name %> </h3>
@@ -13,6 +14,7 @@
             <h5 class = "post-center-no"> Not available </h5>
           <% end %>
      </div>
+   </a>
   </div>
   <br> <br> <br>
 <% end %>
