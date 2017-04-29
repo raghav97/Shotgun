@@ -26,14 +26,11 @@ class ProductsController < ApplicationController
 
 
   def rake_task
-
-    fk_api = FlipkartApi.new("vcraghavg", "47d86d84dbdc4d89919e125744ef6c65", "v0.1.0")
-    product = fk_api.get_product_by_id(get_id(@link), "json")
-    parsed_json = ActiveSupport::JSON.decode(product)
-    @price = parsed_json["productBaseInfo"]["productAttributes"]["sellingPrice"]["amount"]
-    @p = Product.where(flipkart_id: get_id(@link)).first
-    @p.price.push(@price)
-    @p.save!
+    @product = Product.find(params[:id])
+    @product.price.push(get_price_from_link(@product.flipkart_link))
+    t = Time.now
+    @product.time.push(t.to_s[11..15] + ", " + t.to_s[8..9] + " " + month_no_to_name(t.to_s[5..6].to_i) + " " +  t.to_s[0..3])
+    @product.save!
   end
 
   def index
@@ -70,6 +67,14 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+  end
+
+  def task
+    Product.each do |product|
+      product.price.push(get_price_from_link(@product.flipkart_link))
+      product.time.push(t.to_s[11..15] + ", " + t.to_s[8..9] + " " + month_no_to_name(t.to_s[5..6].to_i) + " " +  t.to_s[0..3])
+      product.save!
+    end
   end
 
   def destroy

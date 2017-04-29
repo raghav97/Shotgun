@@ -57,3 +57,7 @@ gem 'devise', '~> 4.2', '>= 4.2.1'
 gem 'pg', '~> 0.18'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem "gritter", "1.2.0"
+gem 'chartkick', '~> 2.2', '>= 2.2.3'
+gem 'groupdate', '~> 3.2'
+gem 'active_median', '~> 0.1.0'
+gem 'whenever', '~> 0.9.7'

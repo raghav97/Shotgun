@@ -44,6 +44,7 @@
     </tr> 
   </table>
   <br>
+  <%= line_chart Hash[@product.time.zip(@product.price)]  %>
 <% else %>
   <h3 class = "center"> Sorry, the product you're searching for does not belong to you </h3>
 <% end %>
