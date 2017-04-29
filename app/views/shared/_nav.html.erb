@@ -7,7 +7,7 @@
   <% end %>
   <a href = "/products/new" style = "text-decoration: none"> Add a new product </a>
   &nbsp &nbsp
-  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+  <a href="/users/sign_out"style = "text-decoration: none" data-method="delete" rel="nofollow">Sign out</a>
 </div>
 <br>
 <hr>
