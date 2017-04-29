@@ -1,4 +1,8 @@
 <div class = "nav">
+  <% if @product != nil %>
+    <a href="/products/<%= @product.id %>"style = "text-decoration: none" data-method="delete" rel="nofollow" data-confirm="Delete? ">Delete product</a>
+  <% end %>
+  &nbsp &nbsp
   <a href = "/products/new" style = "text-decoration: none"> Add a new product </a>
   &nbsp &nbsp
   <%= link_to "Sign out", destroy_user_session_path, method: :delete %>

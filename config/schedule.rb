@@ -18,6 +18,7 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-every 5.minutes do
+every 2.minutes do
   runner "Product.task", :environment => "development"
+  set :output, 'log/cron_log.log'
 end

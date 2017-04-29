@@ -46,6 +46,7 @@
   <hr>
   <h2 id = "text-center"> Product graph </h2>
   <%= line_chart Hash[@product.time.zip(@product.price)]  %>
+
 <% else %>
   <h2 class = "text-center"> Sorry, you are not the owner of this product </h2>
 <% end %>
