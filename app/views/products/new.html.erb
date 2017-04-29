@@ -1,3 +1,5 @@
+<h2 class = "text-center"> Add a new product </h2>
+<br>
 <%= form_for @product do |f| %>
 
   <div class="form-group">
@@ -9,7 +11,7 @@
     <%= f.label :target_price, class: "col-sm-2 control-label" %>  
     <%= f.text_area :target_price, class: "form-control" %>  
   </div>
-  
+  <br>
   <%= f.submit 'Save', class: 'btn btn-primary btn-block' %>
 
 <% end %>

@@ -1,10 +1,7 @@
+<br>
 <%= render 'shared/nav' %>
-<h2 id = "text-center"> Product details </h2>
-<% if @product.user_id == current_user.id %>
-  <% @product.price.push(get_price_from_link(@product.flipkart_link)) %> 
-  <% t = Time.now %>
-  <% @product.time.push(t.to_s[11..15] + ", " + t.to_s[8..9] + " " + month_no_to_name(t.to_s[5..6].to_i) + " " +  t.to_s[0..3]) %>
-  <% @product.save! %>
+  <% if @product.user_id == current_user.id %>
+  <h2 id = "text-center"> Product details </h2>
   <div class="post-container">                
       <div class="post-thumb"><img src="<%= @product.image_url %>" /></div>
       <div class="post-content">
@@ -19,23 +16,25 @@
      </div>
   </div>
 
-  <br> <br>
+  <br>
   <% ctr = 1.to_i %>
+  <hr>
+  <br>
   <table border = "1" width = "100%">
     <tr>
     <td>
       <table border="1" width="100%">
         <tr>
-          <th> No. </th>
-          <th> Price </th>
-          <th> Time </th>
+          <th class = "ok"> No. </th>
+          <th class = "ok"> Price </th>
+          <th class = "ok"> Time </th>
         </tr>
 
         <%= @product.price.zip(@product.time) do |price, time| %>
           <tr>
-           <td> <%= ctr %> </td>
-           <td> Rs. <%= price %> </td>
-           <td> <%= time %> </td>
+            <td> <%= ctr %> </td>
+            <td> Rs. <%= price %> </td>
+            <td> <%= time %> </td>
           </tr>
           <% ctr = ctr + 1 %>
         <% end %>
@@ -44,7 +43,9 @@
     </tr> 
   </table>
   <br>
+  <hr>
+  <h2 id = "text-center"> Product graph </h2>
   <%= line_chart Hash[@product.time.zip(@product.price)]  %>
 <% else %>
-  <h3 class = "center"> Sorry, the product you're searching for does not belong to you </h3>
+  <h2 class = "text-center"> Sorry, you are not the owner of this product </h2>
 <% end %>
