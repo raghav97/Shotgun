@@ -61,3 +61,4 @@ gem 'chartkick', '~> 2.2', '>= 2.2.3'
 gem 'groupdate', '~> 3.2'
 gem 'active_median', '~> 0.1.0'
 gem 'whenever', '~> 0.9.7'
+gem 'rails_12factor', group: :production
