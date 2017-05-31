@@ -3,7 +3,7 @@
   <% if @product.user_id == current_user.id %>
   <h2 id = "text-center"> Product details </h2>
   <div class="post-container">                
-      <div class="post-thumb"><img src="<%= @product.image_url %>" /></div>
+      <div class="post-thumb"> <br> <img src="<%= @product.image_url %>" /></div>
       <div class="post-content">
           <h3 class="post-title"> <%= @product.name %> </h3>
           <h3 class="post-title"> <%= @product.category %> </h3>
