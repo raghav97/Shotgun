@@ -1,8 +1,13 @@
 <div class = "nav">
+  <a href="/products"style = "text-decoration: none"> Home </a>
+  &nbsp &nbsp
   <a href="/users/edit"style = "text-decoration: none" data-method="get" rel="nofollow">Edit profile</a>
   &nbsp &nbsp
   <% if @product != nil %>
     <a href="/products/<%= @product.id %>"style = "text-decoration: none" data-method="delete" rel="nofollow" data-confirm="Delete? ">Delete product</a>
+    &nbsp &nbsp
+
+    <a href="/products/<%= @product.id %>/edit"style = "text-decoration: none" rel="nofollow">Edit product</a>
     &nbsp &nbsp
   <% end %>
   <a href = "/products/new" style = "text-decoration: none"> Add a new product </a>

@@ -18,7 +18,9 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-every 2.minutes do
-  runner "Product.task", :environment => "development"
-  set :output, 'log/cron_log.log'
+set :environment, "development"
+
+every 1.minute do
+  rake "check_price:check_now"
+  10.times do puts "helo" end
 end

@@ -1,29 +1,10 @@
+require 'sidekiq-scheduler'
+
 class ProductsController < ApplicationController
   include ApplicationHelper
+  include Sidekiq::Worker
+
   fk_api = FlipkartApi.new("vcraghavg", "47d86d84dbdc4d89919e125744ef6c65", "v0.1.0")
-  def get_product
-    @link = "https://www.flipkart.com/cockatoo-professional-cycling-helmet/p/itmempmyzm4ye5ak?pid=HLMEMPMYPNHXZUGD&fm=personalisedRecommendation/p2p-same&iid=R_03e9137b-6fe3-4725-b7a4-329d8a6ced8a_R_a4489598-f6b9-4fe8-bfde-f2340a7a999c.HLMEMPMYPNHXZUGD&otracker=hp_reco_Cricket+Helmets_3_Cockatoo+Professional+Cycling+Helmet_HLMEMPMYPNHXZUGD_5"
-    fk_api = FlipkartApi.new("vcraghavg", "47d86d84dbdc4d89919e125744ef6c65", "v0.1.0")
-    product = fk_api.get_product_by_id(get_id(@link), "json")
-    parsed_json = ActiveSupport::JSON.decode(product)
-    @price = parsed_json["productBaseInfo"]["productAttributes"]["sellingPrice"]["amount"]
-    value = parsed_json["productBaseInfo"]["productAttributes"]
-    parsed_json["productBaseInfo"]["productAttributes"]["title"]
-    arr = []
-    arr.push(value["sellingPrice"]["amount"])
-
-    Product.create(
-                   flipkart_link: @link,
-                   flipkart_id: get_id(@link),
-                   name:        value["title"],
-                   category:    parsed_json["productBaseInfo"]["productIdentifier"]["categoryPaths"]["categoryPath"].first.first["title"],
-                   image_url:   value["imageUrls"]["200x200"],
-                   max_price:   value["maximumRetailPrice"]["amount"],
-                   price:       arr,
-                   available:   value["isAvailable"]            
-                  )
-  end
-
 
   def rake_task
     @product = Product.find(params[:id])
@@ -34,7 +15,7 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.all.where(user_id: current_user.id)
+    @products = Product.all.where(user_id: current_user.id.to_i)
   end
 
   def new
@@ -46,7 +27,7 @@ class ProductsController < ApplicationController
 
     if @product.save
       redirect_to @product
-      Purelation.create(product_id: Product.last.id + 1, user_id: current_user.id)
+      Purelation.create(product_id: Product.last.id + 1, user_id: current_user.id.to_i)
       arr = expand_from_link(@product.flipkart_link)
       i = 0.to_i
       @product.flipkart_id = get_id(@product.flipkart_link)
@@ -56,12 +37,23 @@ class ProductsController < ApplicationController
       @product.max_price = arr.fourth
       @product.price = arr.fifth
       @product.available = arr.last
-      @product.user_id = current_user.id
+      @product.user_id = current_user.id.to_i
       t = Time.now
       @product.time.push(t.to_s[11..15] + ", " + t.to_s[8..9] + " " + month_no_to_name(t.to_s[5..6].to_i) + " " +  t.to_s[0..3])
       @product.save!
-    else
+    end
+  end
 
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    if @product.save!
+      redirect_to products_path
+    else
+      puts "Error"
     end
   end
 
@@ -76,8 +68,8 @@ class ProductsController < ApplicationController
   end
 
   def task
-    Product.each do |product|
-      product.price.push(get_price_from_link(@product.flipkart_link))
+    Product.all.each do |product|
+      product.price.push(get_price_from_link(product.flipkart_link))
       t = Time.now
       product.time.push(t.to_s[11..15] + ", " + t.to_s[8..9] + " " + month_no_to_name(t.to_s[5..6].to_i) + " " +  t.to_s[0..3])
       product.save!
@@ -88,6 +80,10 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.delete
     redirect_to products_path
+  end
+
+  def perform
+    puts "Hello World!"
   end
 
   private
