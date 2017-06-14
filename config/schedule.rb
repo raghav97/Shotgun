@@ -18,9 +18,24 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+
+# set :environment, "development"
+
+# every '* * * * *' do
+#   rake "check_price:check_now", "cd /workspace/apps/Shotgun && RAILS_ENV=development bundle exec rake check_price:check_now"
+#   options[:verbose] = true
+#   10.times do puts "helo" end
+# end
+
+# whenever
+# whenever --update-crontab
+# sudo service cron restart
+# crontab
+
 set :environment, "development"
+set :output, {:error => "log/cron_error_log.log", :standard => "log/cron_log.log"}
 
 every 1.minute do
-  rake "check_price:check_now"
-  10.times do puts "helo" end
+  #rake "check_price:check_now"
+  puts "okay"
 end

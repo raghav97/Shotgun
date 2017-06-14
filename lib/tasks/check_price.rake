@@ -1,7 +1,6 @@
 namespace :check_price do
   desc "TODO"
   task check_now: :environment do
-    aa
     Product.first.price.push("ok")
     price_sync = ::PriceSyncLibrary.new
     Product.all.each do |product|

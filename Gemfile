@@ -63,3 +63,4 @@ gem 'whenever', '~> 0.9.7'
 gem 'rails_12factor', group: :production
 gem 'sidekiq-scheduler', '~> 2.1', '>= 2.1.5'
 gem 'concurrent-ruby', '~> 1.0'
+gem 'rake', '~> 12.0'
