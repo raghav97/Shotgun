@@ -64,3 +64,5 @@ gem 'rails_12factor', group: :production
 gem 'sidekiq-scheduler', '~> 2.1', '>= 2.1.5'
 gem 'concurrent-ruby', '~> 1.0'
 gem 'rake', '~> 12.0'
+gem 'twilio-ruby', '~> 4.11', '>= 4.11.1'
+gem 'dotenv-rails', groups: [:development, :test]

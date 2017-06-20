@@ -13,6 +13,7 @@
           <% else %>
             <h5 class = "post-center-no"> Not available </h5>
           <% end %>
+          <% difference = @product.price.last.to_i - @product.target_price.to_i %>
      </div>
   </div>
 
