@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   include ApplicationHelper
   include Sidekiq::Worker
 
-  fk_api = FlipkartApi.new("vcraghavg", "47d86d84dbdc4d89919e125744ef6c65", "v0.1.0")
+  fk_api = FlipkartApi.new("vcraghavg", ENV['FLIPKART_TOKEN'], "v0.1.0")
 
   def rake_task
     @product = Product.find(params[:id])

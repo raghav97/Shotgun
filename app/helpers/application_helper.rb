@@ -11,7 +11,7 @@ module ApplicationHelper
   end
 
   def expand_from_link link
-    fk_api = FlipkartApi.new("vcraghavg", "47d86d84dbdc4d89919e125744ef6c65", "v0.1.0")
+    fk_api = FlipkartApi.new("vcraghavg", ENV['FLIPKART_TOKEN'], "v0.1.0")
     product = fk_api.get_product_by_id(get_id(link), "json")
     parsed_json = ActiveSupport::JSON.decode(product)
     price = parsed_json["productBaseInfo"]["productAttributes"]["sellingPrice"]["amount"]
@@ -31,7 +31,7 @@ module ApplicationHelper
   end
 
   def get_price_from_link link
-    fk_api = FlipkartApi.new("vcraghavg", "47d86d84dbdc4d89919e125744ef6c65", "v0.1.0")
+    fk_api = FlipkartApi.new("vcraghavg", ENV['FLIPKART_TOKEN'], "v0.1.0")
     product = fk_api.get_product_by_id(get_id(link), "json")
     parsed_json = ActiveSupport::JSON.decode(product)
     price = parsed_json["productBaseInfo"]["productAttributes"]["sellingPrice"]["amount"]
