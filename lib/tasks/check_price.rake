@@ -17,6 +17,7 @@ namespace :check_price do
         message = "Hello there #{user.first_name}. Your product #{product.name}'s price is now below #{product.target_price}. Get it right away here #{product.flipkart_link}"
 
         SmsTool.send_sms(number: phone_number, message: message)
+        # SmsTool.send_sms(number: "9600129789", message: "Hello there")
       end
     end
   end
