@@ -30,8 +30,6 @@ rails -v
 
 Once Ruby and Rails are installed properly in your laptop, run the following commands to setup the app
 
-![image] (https://photos.google.com/photo/AF1QipOUCiCcVY77x-vZufU1tnchl7G9qBrkKOvS6to2)
-
 Run
 ```
 bundle install
@@ -63,3 +61,6 @@ rails s
 ``` 
 
 in the terminal. Once the server is running, go the browser and hit the url "localhost:3000". This would load the web page and you are good to go!
+
+![image] (https://photos.google.com/photo/AF1QipOUCiCcVY77x-vZufU1tnchl7G9qBrkKOvS6to2)
+
