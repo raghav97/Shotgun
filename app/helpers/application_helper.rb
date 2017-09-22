@@ -16,13 +16,14 @@ module ApplicationHelper
     parsed_json = ActiveSupport::JSON.decode(product)
     price = parsed_json["productBaseInfo"]["productAttributes"]["sellingPrice"]["amount"]
     value = parsed_json["productBaseInfo"]["productAttributes"]
-    parsed_json["productBaseInfo"]["productAttributes"]["title"]    
+    title = parsed_json["productBaseInfo"]["productAttributes"]["title"]
+    image_url =  parsed_json["productBaseInfo"]["productAttributes"]["imageUrls"]["unknown"]
     arr = []
     arr.push(value["sellingPrice"]["amount"])
     answer = []
     answer.push(value["title"],
                 parsed_json["productBaseInfo"]["productIdentifier"]["categoryPaths"]["categoryPath"].first.first["title"],
-                value["imageUrls"]["200x200"],
+                image_url,
                 value["maximumRetailPrice"]["amount"],
                 arr,
                 value["isAvailable"]
