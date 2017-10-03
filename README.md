@@ -62,4 +62,25 @@ rails s
 
 in the terminal. Once the server is running, go the browser and hit the url "localhost:3000". This would load the web page and you are good to go!
 
-![alt text](https://github.com/raghav97/Shotgun/blob/master/public/assets/1.png "Logo Title Text 1")
+
+## Application walkthrough
+
+### Sign up
+![alt text](https://github.com/raghav97/Shotgun/blob/master/public/assets/1.png "Sign up")
+
+### Log in
+![alt text](https://github.com/raghav97/Shotgun/blob/master/public/assets/2.png "Login")
+
+### Adding a new product
+![alt text](https://github.com/raghav97/Shotgun/blob/master/public/assets/6.png "Add new product")
+
+### Homepage with all the user's products
+![alt text](https://github.com/raghav97/Shotgun/blob/master/public/assets/3.png "Homepage")
+
+### Product detail page of a particular product
+![alt text](https://github.com/raghav97/Shotgun/blob/master/public/assets/4.png "Product detail")
+
+### The time vs price graph of a particular product
+![alt text](https://github.com/raghav97/Shotgun/blob/master/public/assets/5.png "Graph")
+
+### Text message with the Flipkart link sent to the user's mobile phone when the price of the product falls below the target price
