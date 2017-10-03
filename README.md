@@ -62,4 +62,4 @@ rails s
 
 in the terminal. Once the server is running, go the browser and hit the url "localhost:3000". This would load the web page and you are good to go!
 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![alt text](https://photos.google.com/photo/AF1QipOiDzpSmN4mSli3hIzG_2w25Qx68wONl3JVeD8I "Logo Title Text 1")
