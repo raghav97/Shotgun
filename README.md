@@ -97,6 +97,6 @@ in the terminal. Once the server is running, go the browser and hit the url "loc
 
 ### Text message with the Flipkart link sent to the user's mobile phone when the price of the product falls below the target price
 
-![text message](https://github.com/raghav97/Shotgun/blob/master/public/assets/7.png "text message")
+![text message](https://github.com/raghav97/Shotgun/blob/master/public/assets/7.png =0.5x "text message")
 
 Your call for Shotgun is just a click away!
